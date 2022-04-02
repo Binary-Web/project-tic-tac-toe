@@ -20,9 +20,22 @@ body {
 .cell {
   background-color: #fff;
   border: 1px solid #000;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12rem;
+  height: 100%;
+  width: 100%;
+  padding: 0;
 }
 .board {
   display: grid;
   grid-template-columns: repeat(3, auto);
   width: 80%;
+}
+
+.fa-x {
+  font-size: 10rem;
+  color: white;
 }
