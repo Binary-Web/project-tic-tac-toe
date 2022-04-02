@@ -1,4 +1,9 @@
-const board = (() => {
+const board = document.querySelector('.board');
+var boardWidth = board.offsetWidth;
+board.style.height = `${boardWidth}px`
+
+
+const gameBoard = (() => {
     let winningConditions = [
         [0, 1, 2],
         [3, 4, 5],
