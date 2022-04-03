@@ -5,7 +5,10 @@ board.style.height = `${boardWidth}px`;
 const cells = document.querySelectorAll('.cell');
 
 const modal = document.querySelector('.modal-container');
+const modalContent = document.querySelector('.modal-content')
 const playAgainButton = document.querySelector('.btn-playagain');
+
+var winner = ""
 
 playAgainButton.addEventListener('click', () => game.gameReset());
 
@@ -26,6 +29,8 @@ const game = (() => {
     ];
 
     const gameReset = () => {
+        winner = ""
+        turns = 0;
         winningConditions = [
             [0, 1, 2],
             [3, 4, 5],
@@ -60,13 +65,21 @@ const game = (() => {
         winningConditions.forEach(condition => {
             const arr = [...new Set(condition)]; //making a new array with now duplicate values
             if(arr.length == 1) {
-                modal.style.display = "flex";
+                winner = arr[0] === "x" ? "PLAYER1" : "PLAYER2"
+                declareWinner(winner)
             }
         })
-        if(turns === 8) {
-            console.log("NO WINNERS")
-            gameReset();
+        turns++
+        if(turns === 9 && winner === "") {
+            modalContent.innerHTML = "NO WINNER";
+            modal.style.display = "flex"
         }
+    }
+
+    const declareWinner = (winner) => {
+        modalContent.innerHTML = `${winner} WINS`
+        modal.style.display = "flex";
+        return;
     }
 
     const gameMarker = (cellNum, symbol) => {
@@ -88,12 +101,8 @@ const game = (() => {
         } else if(turns % 2 == 1) {
             p2(cellNum, cellBlock);
         }
-        turns++;
     }
 
-    const declareWinner = (winner) => {
-        alert(`Winner is ${winner}`);
-    }
     return {
         playerMoves,
         gameReset
