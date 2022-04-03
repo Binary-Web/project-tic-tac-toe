@@ -6,6 +6,7 @@
 
 body {
   background-color: #353535;
+  font-family: "Montserrat", sans-serif;
 }
 
 .container {
@@ -38,4 +39,64 @@ body {
 .fa-x {
   font-size: 10rem;
   color: white;
+}
+
+/* MODAL */
+.modal-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  /* FALL BACK BG COLOR */
+  background-color: #353535;
+  background-color: rgb(0, 0, 0, 0.5);
+}
+
+.modal {
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 5px 5px rgb(0, 0, 0, 0.5);
+}
+
+.modal-title {
+  padding: 0.5rem 0;
+  text-align: center;
+  background-color: #353535;
+  color: #fff;
+}
+
+.modal-body {
+  padding: 1rem;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.modal-btn {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-playagain {
+  background-color: #988f2a;
+  color: #fff;
+}
+.btn-playagain:hover {
+  background-color: #7c7422;
+}
+
+.btn-cancel {
+  background-color: #d2d5dd;
+}
+.btn-cancel:hover {
+  background-color: #bcbec4;
 }
